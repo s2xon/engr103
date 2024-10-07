@@ -1,22 +1,36 @@
+/*******************************************************************
+** Program: assignment1.cpp
+** Author: Saxon Payne
+** Date: 10/04/2024
+** Description: This program takes in inputs related to your home value,
+*insurance rates, tax rates, etc. Then it computes an out put with your monthly
+*payment and other outputs related to your remaining balance.
+** Input: Home price (in dollars), Down payment (in dollars), Length of loan (in
+*months), Monthly interest rate (in percentage), Property tax rate (in
+*percentage), Insurance rate (in percentage)
+** Output: Monthly mortgage payment, Total paid, Principle paid, Additional paid
+*(i.e., Total paid – principle paid)
+*******************************************************************/
+
 #include <cmath>
 #include <iostream>
 
 using std::cout;
 using std::endl;
 
-double mortPrin(float home_price, float down_payment) {
+double mortPrin(double home_price, double down_payment) {
   float actual = (home_price - down_payment);
   cout << "Principal Loan Amount: " << actual << endl;
   return actual;
 }
 
-double propTax(float tax_rate, float home_price) {
+double propTax(double tax_rate, double home_price) {
   float monRate = ((tax_rate / 100) * home_price) / 12;
   cout << "Monthly Property Tax: " << monRate << endl;
   return monRate;
 }
 
-double monInsur(float insur_rate, float home_price) {
+double monInsur(double insur_rate, float home_price) {
   float mon_insur = ((insur_rate / 100) * home_price) / 12;
   cout << "Monthly Insurance: " << mon_insur << endl;
   return mon_insur;
@@ -50,7 +64,7 @@ int main() {
 
   double p = mortPrin(homePrice, downPayment);
   double i = (monthlyIntRate / 100);
-  int n = lengthOfLoan;
+  double n = lengthOfLoan;
   double t = propTax(propertyTaxRate, homePrice);
   double r = monInsur(insuranceRate, homePrice);
 
